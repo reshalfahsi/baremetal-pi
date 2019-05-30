@@ -3,6 +3,7 @@
 This repository is for exercise of Embedded Operating System course (TKEE163251) in Electrical and Information Engineering of Universitas Gadjah Mada. The task is simple: blink the Raspberry Pi 3B internal LED based on student number. There are 5 digits in student number. The LED must blink with 200ms delay for each digit. There is a 2s delay between digits.
 
 ![alt text](result.gif)
+
 [Click to Show Full Video](https://www.youtube.com/watch?v=0ovkZqOeEP4)
 
 ## Requirements

@@ -15,9 +15,8 @@ _start:
 _main:
     loop$:                          @; main loop
         @;Student Number: 44251
-      
-	mov r1, #1		@; iteration index
-	mov r2, #4		@; first digit of student number
+      	
+	mov r4, #4		@; first digit of student number
 	pertama$:        
 		@; enable led
         	mov     r0, #1              @; led state 1 = on
@@ -33,14 +32,13 @@ _main:
         	ldr     r0, =0x30D40       @; delay in microseconds (200ms)
         	bl      delay               @; branch to delay function
 		
-		cmp	r1, r2		@; compare
-		add 	r1, r1, #1	@; add iteration index
-		ble	pertama		@; loop requirement
+		subs	r4, r4, #1 
+		bne	pertama$		@; loop requirement
 
 	ldr     r0, =0x1E8480       @; delay in microseconds (2s)
-
-	mov r1, #1		@; iteration index
-	mov r2, #4		@; second digit of student number
+	bl	delay
+      	
+	mov r4, #4		@; second digit of student number
 	kedua$:        
 		@; enable led
         	mov     r0, #1              @; led state 1 = on
@@ -56,14 +54,13 @@ _main:
         	ldr     r0, =0x30D40       @; delay in microseconds (200ms)
         	bl      delay               @; branch to delay function
 		
-		cmp	r1, r2		@; compare
-		add 	r1, r1, #1	@; add iteration index
-		ble	kedua		@; loop requirement
+		subs	r4, r4, #1 
+		bne	kedua$		@; loop requirement
 
 	ldr     r0, =0x1E8480       @; delay in microseconds (2s)
+	bl	delay
 	
-	mov r1, #1		@; iteration index
-	mov r2, #2		@; third digit of student number
+	mov r4, #2		@; third digit of student number
 	ketiga$:        
 		@; enable led
         	mov     r0, #1              @; led state 1 = on
@@ -79,14 +76,13 @@ _main:
         	ldr     r0, =0x30D40       @; delay in microseconds (200ms)
         	bl      delay               @; branch to delay function
 		
-		cmp	r1, r2		@; compare
-		add 	r1, r1, #1	@; add iteration index
-		ble	ketiga		@; loop requirement
+		subs	r4, r4, #1 
+		bne	ketiga$		@; loop requirement
 
-	ldr     r0, =0x1E8480       @; delay in microseconds (2s)	
-
-	mov r1, #1		@; iteration index
-	mov r2, #5		@; fourth digit of student number
+	ldr     r0, =0x1E8480       @; delay in microseconds (2s)
+	bl	delay	
+      	
+	mov r4, #5		@; forth digit of student number
 	keempat$:        
 		@; enable led
         	mov     r0, #1              @; led state 1 = on
@@ -102,14 +98,13 @@ _main:
         	ldr     r0, =0x30D40       @; delay in microseconds (200ms)
         	bl      delay               @; branch to delay function
 		
-		cmp	r1, r2		@; compare
-		add 	r1, r1, #1	@; add iteration index
-		ble	keempat		@; loop requirement
+		subs	r4, r4, #1 
+		bne	keempat$		@; loop requirement
 
 	ldr     r0, =0x1E8480       @; delay in microseconds (2s)
-
-	mov r1, #1		@; iteration index
-	mov r2, #4		@; fifth digit of student number
+	bl	delay
+  	
+	mov r4, #1		@; fifth digit of student number
 	kelima$:        
 		@; enable led
         	mov     r0, #1              @; led state 1 = on
@@ -125,10 +120,10 @@ _main:
         	ldr     r0, =0x30D40       @; delay in microseconds (200ms)
         	bl      delay               @; branch to delay function
 		
-		cmp	r1, r2		@; compare
-		add 	r1, r1, #1	@; add iteration index
-		ble	kelima		@; loop requirement
+		subs	r4, r4, #1 
+		bne	kelima$		@; loop requirement
 
 	ldr     r0, =0x1E8480       @; delay in microseconds (2s)
+	bl	delay
 
         b       loop$               @; branch to main loop$
